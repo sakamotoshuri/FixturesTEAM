@@ -73,10 +73,10 @@
 		%>
 	
 		<tr>
-			<td><a href = "ProductIdSerch?id=<%=s.getFixtures_id() %>"><%=s.getFixtures_id()%></a></td>
+			<td><a href = "FixturesSerchId?id=<%=s.getFixtures_id() %>"><%=s.getFixtures_id()%></a></td>
 			<td><%=s.getFixtures_name()%></td>
 			<td><%=s.getQuantity()%></td>
-			<td><a href = "CategorySerch?category=<%=s.getCategory() %>"><%=s.getCategory() %></a></td>
+			<td><a href = "CategorySerchFixtures?category=<%=s.getCategory() %>"><%=s.getCategory() %></a></td>
 		</tr>
 
 	<%} %>
