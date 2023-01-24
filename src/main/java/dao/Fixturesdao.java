@@ -10,9 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.Fixturesdto;
-
 import dto.Fixtures;
+import dto.Fixturesdto;
 
 public class Fixturesdao {
 	private static Connection getConnection() throws URISyntaxException, SQLException {
@@ -47,9 +46,17 @@ public class Fixturesdao {
 			pstmt.setString(4, fixt.getContent());
 			
 			result = pstmt.executeUpdate();
-
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		} finally {
+			System.out.println(result + "件商品を更新しました。");
+		}
+		return result;
+	}
 	
-	public static List<Fixturesdto> SearchProductName(String serch) {
+	public static List<Fixturesdto> SearchFixturesName(String serch) {
 		String serchname="%"+serch+"%";
 		
 		String sql = "select * from fixturres where fixtures_name LIKE ? ";
@@ -117,22 +124,7 @@ public class Fixturesdao {
 		return result;
 	}
 	//削除
-	public static int DeleteFixtures(int Fixtures_id) {
-		
-		String sql = "DELETE FROM Fixtures WHERE fixtures_id = ?";
-		int result = 0;
-		try (
-				Connection con = getConnection();	// DB接続
-				PreparedStatement pstmt = con.prepareStatement(sql);			// 構文解析
-				){
-			
-			pstmt.setInt(1,Fixtures_id );
-			result = pstmt.executeUpdate();
-
-			System.out.println(result + "件商品を検索しました。");
-		}
-		return result;
-	}
+	
 	
 	public static List<Fixturesdto> SearchProductId(int serch) {
 		int serchname=serch;
@@ -169,10 +161,9 @@ public class Fixturesdao {
 		}
 		return  result;
 
-			System.out.println(result + "件商品を検索しました。");
+			
 		}
-		return result;
-	}
+	
 	public static List<Fixturesdto> selectAllFixtures() {
 		String sql = "select * from fixtures";
 		List<Fixturesdto>result=new ArrayList<>();
