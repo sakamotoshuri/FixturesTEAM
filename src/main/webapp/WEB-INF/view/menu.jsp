@@ -32,24 +32,20 @@
                   カテゴリ
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="CategorySerch?category=本・コミック・雑誌">本・コミック・雑誌</a></li>
-                  <li><a class="dropdown-item" href="CategorySerch?category=DVD・ミュージック・ゲーム">DVD・ミュージック・ゲーム</a></li>
-                  <li><a class="dropdown-item" href="CategorySerch?category=家電・カメラ・AV機器">家電・カメラ・AV機器</a></li>
-                  <li><a class="dropdown-item" href="CategorySerch?category=パソコン・オフィス用品">パソコン・オフィス用品</a></li>
-                  <li><a class="dropdown-item" href="CategorySerch?category=スマートホーム">スマートホーム</a></li>
-                  <li><a class="dropdown-item" href="CategorySerch?category=ホーム＆キッチン・ペット・DIY">ホーム＆キッチン・ペット・DIY</a></li>
-                  <li><a class="dropdown-item" href="CategorySerch?category=食品・飲料・お酒">食品・飲料・お酒</a></li>
-                  <li><a class="dropdown-item" href="CategorySerch?category=ドラッグストア・ビューティー">ドラッグストア・ビューティー</a></li>
-                  <li><a class="dropdown-item" href="CategorySerch?category=べビー・おもちゃ・ホビー">べビー・おもちゃ・ホビー</a></li>
-                  <li><a class="dropdown-item" href="CategorySerch?category=服・シューズ・バッグ・腕時計">服・シューズ・バッグ・腕時計</a></li>
-                  <li><a class="dropdown-item" href="CategorySerch?category=スポーツ＆アウトドア">スポーツ＆アウトドア</a></li>
-                  <li><a class="dropdown-item" href="CategorySerch?category=車＆バイク・産業・研究開発">車＆バイク・産業・研究開発</a></li>
+                  <li><a class="dropdown-item" href="CategorySerchFixtures?category=IT機器">IT機器</a></li>
+                  <li><a class="dropdown-item" href="CategorySerchFixtures?category=机">机</a></li>
+                  <li><a class="dropdown-item" href="CategorySerchFixtures?category=イス">イス</a></li>
+                  <li><a class="dropdown-item" href="CategorySerchFixtures?category=延長コード">延長コード</a></li>
+                  <li><a class="dropdown-item" href="CategorySerchFixtures?category=ホワイトボード">ホワイトボード</a></li>
+                  <li><a class="dropdown-item" href="CategorySerchFixtures?category=ロッカー">ロッカー</a></li>
+                  <li><a class="dropdown-item" href="CategorySerchFixtures?category=加湿器">加湿器</a></li>
+                  <li><a class="dropdown-item" href="CategorySerchFixtures?category=トイレ">トイレ</a></li>
                   <li><hr class="dropdown-divider"></li>
                 </ul>
               </li>
             </ul>
             <form class="d-flex" action="ProductSerchExcute" method="post">
-             <input class="form-control me-2" type="text" name = "product_name"placeholder="Search" aria-label="Search">
+             <input class="form-control me-2" type="text" name = "fixtures_name"placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
@@ -73,7 +69,7 @@
 		%>
 	
 		<tr>
-			<td><a href = "FixturesSerchId?id=<%=s.getFixtures_id() %>"><%=s.getFixtures_id()%></a></td>
+			<td><a href = "FixturesSerchId?fixtures_id=<%=s.getFixtures_id() %>"><%=s.getFixtures_id()%></a></td>
 			<td><%=s.getFixtures_name()%></td>
 			<td><%=s.getQuantity()%></td>
 			<td><a href = "CategorySerchFixtures?category=<%=s.getCategory() %>"><%=s.getCategory() %></a></td>

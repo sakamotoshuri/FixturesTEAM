@@ -56,7 +56,7 @@ public class Fixturesdao {
 		return result;
 	}
 	
-	public static List<Fixturesdto> SearchProductName(String serch) {
+	public static List<Fixturesdto> SearchFixturesName(String serch) {
 		String serchname="%"+serch+"%";
 		
 		String sql = "select * from fixturres where fixtures_name LIKE ? ";
