@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.FixturesDAO;
+import dao.Fixturesdao;
 import dto.Fixtures;
 
 /**
@@ -43,10 +43,10 @@ public class RegisterFixturesServlet extends HttpServlet {
 
 		
 		// 入力された情報を元にインスタンスを生成
-		Fixtures fix = new Fixtures(null, fixtures_name, quantity, category, content);
+		Fixtures fix = new Fixtures(-1, fixtures_name, quantity, category, content);
 		
 		// SQL実行
-		int result = FixturesDAO.registerFixtures(fix);
+		int result = Fixturesdao.registerFixtures(fix);
 		
 		if(result == 1) {
 			String view = "WEB-INF/view/success.jsp";

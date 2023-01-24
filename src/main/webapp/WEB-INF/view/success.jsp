@@ -13,29 +13,22 @@
 		<h2 style="color:blue">下記の備品を登録しました。</h2>
 		<table border="1" style="width: 800px;">
 		<tr>
-			<th>備品ID</th>
 			<th>備品名</th>
 			<th>量</th>
 			<th>カテゴリー</th>
 			<th>コンテンツ</th>
-		</tr>
+		</tr>	
 	<%
 	request.setCharacterEncoding("UTF-8");
-	String fixtures_id = request.getParameter("id");
 	String fixtures_name = request.getParameter("fixtures_name");
-	String quantity = request.getParameter("quantity");
-	String kategory = request.getParameter("kategory");
+	int quantity = Integer.parseInt(request.getParameter("quantity"));
+	String category = request.getParameter("category");
 	String content = request.getParameter("content");
-
-	
-	int Fixtures_id = Integer.parseInt(fixtures_id);
-	int Quantity = Integer.parseInt(quantity);
 	%>
 		<tr>
-			<td><%=fixtures_id %></td>
 			<td><%=fixtures_name %></td>
 			<td><%=quantity %></td>
-			<td><%=kategory %></td>
+			<td><%=category %></td>
 			<td><%=content %></td>
 		</tr>
 	
