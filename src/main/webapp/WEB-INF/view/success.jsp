@@ -10,30 +10,33 @@
 <body>
 <div class="image"></div>
 <div class="message">
-		<h2 style="color:blue">下記の図書を登録しました。</h2>
+		<h2 style="color:blue">下記の備品を登録しました。</h2>
 		<table border="1" style="width: 800px;">
 		<tr>
-			<th>図書ID</th>
-			<th>本の題名</th>
-			<th>ISBN</th>
-			<th>著者</th>
+			<th>備品ID</th>
+			<th>備品名</th>
+			<th>量</th>
+			<th>カテゴリー</th>
+			<th>コンテンツ</th>
 		</tr>
 	<%
 	request.setCharacterEncoding("UTF-8");
-	String id = request.getParameter("id");
-	String book_name = request.getParameter("book_name");
-	String isbn = request.getParameter("isbn");
-	String name = request.getParameter("name");
+	String fixtures_id = request.getParameter("id");
+	String fixtures_name = request.getParameter("fixtures_name");
+	String quantity = request.getParameter("quantity");
+	String kategory = request.getParameter("kategory");
+	String content = request.getParameter("content");
 
 	
-	int Id = Integer.parseInt(id);
-	int Isbn = Integer.parseInt(isbn);
+	int Fixtures_id = Integer.parseInt(fixtures_id);
+	int Quantity = Integer.parseInt(quantity);
 	%>
 		<tr>
-			<td><%=id %></td>
-			<td><%=book_name %></td>
-			<td><%=isbn %></td>
-			<td><%=name %></td>
+			<td><%=fixtures_id %></td>
+			<td><%=fixtures_name %></td>
+			<td><%=quantity %></td>
+			<td><%=kategory %></td>
+			<td><%=content %></td>
 		</tr>
 	
 	

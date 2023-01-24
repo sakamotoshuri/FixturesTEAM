@@ -35,16 +35,15 @@ public class RegisterFixturesServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		// フォーム入力内容の取得
-		String fixtures_id = request.getParameter("id");
+		
 		String fixtures_name = request.getParameter("fixtures_name");
-		String quantity = request.getParameter("quantity");
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		String category = request.getParameter("category");
 		String content = request.getParameter("content");
 
-		int Fixtures_id = Integer.parseInt(fixtures_id);
-		int Quantity = Integer.parseInt(quantity);
+		
 		// 入力された情報を元にインスタンスを生成
-		Fixtures fix = new Fixtures(Fixtures_id, fixtures_name, Quantity, category, content);
+		Fixtures fix = new Fixtures(null, fixtures_name, quantity, category, content);
 		
 		// SQL実行
 		int result = FixturesDAO.registerFixtures(fix);
