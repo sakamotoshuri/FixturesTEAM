@@ -12,6 +12,8 @@ import java.util.List;
 
 import dto.Fixturesdto;
 
+import dto.Fixtures;
+
 public class Fixturesdao {
 	private static Connection getConnection() throws URISyntaxException, SQLException {
 		try {
@@ -28,6 +30,24 @@ public class Fixturesdao {
 	    return DriverManager.getConnection(dbUrl, username, password);
 	}
 	
+	// 引数の Product インスタンスを元にデータを1件INSERTするメソッド
+	public static int registerFixtures(Fixtures fixt) {
+		
+		String sql = "INSERT INTO Fixtures VALUES(default, ?, ?, ?, ?)";
+		// return用の変数
+		int result = 0;
+		
+		try (
+				Connection con = getConnection();	// DB接続
+				PreparedStatement pstmt = con.prepareStatement(sql);			// 構文解析
+				){
+			pstmt.setString(1, fixt.getFixtures_name());
+			pstmt.setInt(2, fixt.getQuantity());
+			pstmt.setString(3, fixt.getCategory());
+			pstmt.setString(4, fixt.getContent());
+			
+			result = pstmt.executeUpdate();
+
 	
 	public static List<Fixturesdto> SearchProductName(String serch) {
 		String serchname="%"+serch+"%";
@@ -92,6 +112,23 @@ public class Fixturesdao {
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		} finally {
+			System.out.println(result + "件更新しました。");
+		}
+		return result;
+	}
+	//削除
+	public static int DeleteFixtures(int Fixtures_id) {
+		
+		String sql = "DELETE FROM Fixtures WHERE fixtures_id = ?";
+		int result = 0;
+		try (
+				Connection con = getConnection();	// DB接続
+				PreparedStatement pstmt = con.prepareStatement(sql);			// 構文解析
+				){
+			
+			pstmt.setInt(1,Fixtures_id );
+			result = pstmt.executeUpdate();
+
 			System.out.println(result + "件商品を検索しました。");
 		}
 		return result;
@@ -121,11 +158,17 @@ public class Fixturesdao {
 					
 				}
 			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		} finally {
+
+			System.out.println(result + "件削除しました。");
+		}
+		return  result;
+
 			System.out.println(result + "件商品を検索しました。");
 		}
 		return result;
@@ -159,6 +202,7 @@ public class Fixturesdao {
 			System.out.println(result + "件商品を検索しました。");
 		}
 		return result;
+
 	}
 	
 	
