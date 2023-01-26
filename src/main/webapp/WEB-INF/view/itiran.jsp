@@ -27,9 +27,13 @@
 		 </tr>
 		
     <%
-    List<Fixtures> list = (ArrayList<Fixtures>)request.getAttribute("list");
-    for(Fixtures f : list) {
-    %>
+		    
+
+		    		    
+
+		    		        List<Fixtures> list = (ArrayList<Fixtures>)request.getAttribute("list");
+		    		        for(Fixtures f : list) {
+		    %>
 
 		 <tr>
 		 	<td><%=f.getFixtures_id() %></td>
